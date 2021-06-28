@@ -35,7 +35,7 @@ class Comics {
                 const imgSrc = path + '/' + IMG_STANDARD_XLARGE + '.' + extension;
 
                 htmlContent += `
-                <li class="comics__item" data-uri="${uri}">
+                <li class="border comics__item" data-uri="${uri}">
                 <span class="comics__name">${title}</span>
                <img class="comics__img" src=${imgSrc} />
                </li>

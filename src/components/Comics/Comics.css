@@ -27,5 +27,11 @@
 
 .comics__img{
     width: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
 }
 
+.border{
+    border: 5px solid orange;
+}
