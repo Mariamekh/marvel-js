@@ -23,7 +23,7 @@ class Comics {
 
         data.forEach(({
             id,
-            name,
+            title,
             thumbnail: {
                 path,
                 extension
@@ -31,11 +31,12 @@ class Comics {
         }) => {
 
             if (path.lastIndexOf(IMG_NOT_AVAILABLE) === -1) {
+                const uri = API_URL + URL_COMICS + '/' + id + '/' + URL_CHARACTERS;
                 const imgSrc = path + '/' + IMG_STANDARD_XLARGE + '.' + extension;
 
                 htmlContent += `
-               <li class="comics__item">
-               <span class="comics__name">${name}</span>
+                <li class="comics__item" data-uri="${uri}">
+                <span class="comics__name">${title}</span>
                <img class="comics__img" src=${imgSrc} />
                </li>
                `
@@ -50,6 +51,16 @@ class Comics {
         `
 
         ROOT_INDEX.innerHTML = htmlWrapper
+    }
+
+   getEventlistener(){
+        document.querySelectorAll('.comics__item').forEach(el=>{
+            const uri = el.getAttribute("data-uri");
+
+            el.addEventListener('click',  ()=>{
+                console.log(uri)
+            })
+        })
     }
 }
 
